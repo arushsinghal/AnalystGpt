@@ -298,18 +298,3 @@ Upload → Analyze → Export/Review — all from a clean, sidebar-driven interf
 ## 📄 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🙏 Acknowledgments
-
-- LangChain for the RAG framework
-- Google Gemini for LLM capabilities
-- Streamlit for the web interface
-- FAISS for vector similarity search
-
-## 📞 Support
-
-For questions or issues, please open an issue on the repository or contact the development team.
-
----
-
-**AnalystGPT** - Transforming financial document analysis with AI 
