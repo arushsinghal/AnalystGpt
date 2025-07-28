@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.pkl
+*.faiss
+.env
+.DS_Store
+.ipynb_checkpoints/
+vector_store/index.*
