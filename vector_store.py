@@ -102,9 +102,9 @@ class VectorStore:
             return []
         
         try:
-            # This would need to be implemented based on your metadata structure
-            # For now, return empty list
-            return []
+            docs = self.vector_store.docstore._dict.values()
+            companies = list(set(doc.metadata.get("company_name", "Unknown") for doc in docs))
+            return sorted(c for c in companies if c != "Unknown")
         except Exception as e:
             print(f"Error getting companies: {e}")
             return []
@@ -115,24 +115,26 @@ class VectorStore:
             return []
         
         try:
-            # This would need to be implemented based on your metadata structure
-            # For now, return empty list
-            return []
+            docs = self.vector_store.docstore._dict.values()
+            quarters = list(set(
+                {"year": doc.metadata.get("year", "Unknown"), "quarter": doc.metadata.get("quarter", "Unknown")}
+                for doc in docs
+            ))
+            return sorted([q for q in quarters if q["year"] != "Unknown" and q["quarter"] != "Unknown"], key=lambda x: (x["year"], x["quarter"]))
         except Exception as e:
             print(f"Error getting quarters: {e}")
             return []
     
     def get_store_stats(self) -> Dict[str, Any]:
-        """Get vector store statistics."""
         if not self.vector_store:
             return {"total_documents": 0}
-        
+    
         try:
-            # This would need to be implemented based on your store structure
-            return {"total_documents": "Unknown"}
+            return {"total_documents": len(self.vector_store.docstore._dict)}
         except Exception as e:
             print(f"Error getting store stats: {e}")
             return {"total_documents": 0}
+
 
 # Example usage
 if __name__ == "__main__":

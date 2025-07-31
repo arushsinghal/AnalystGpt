@@ -9,6 +9,33 @@ from graph import AnalystGPTAgent
 from exports.excel_export import ExcelExporter
 from exports.pdf_export import PDFExporter
 
+import traceback
+
+def initialize_system():
+    """Initialize the vector store and agent."""
+    try:
+        print("Debug: Starting system initialization...")
+        
+        if st.session_state.vector_store is None:
+            print("Debug: Creating vector store...")
+            st.session_state.vector_store = VectorStore()
+            print("Debug: Vector store created successfully")
+        
+        if st.session_state.agent is None:
+            print("Debug: Creating agent...")
+            st.session_state.agent = AnalystGPTAgent(st.session_state.vector_store)
+            print("Debug: Agent created successfully")
+            
+        print("Debug: System initialization complete")
+        return True
+        
+    except Exception as e:
+        print(f"Debug: Error during initialization: {str(e)}")
+        print(f"Debug: Full traceback: {traceback.format_exc()}")
+        st.error(f"Error initializing system: {str(e)}")
+        st.code(traceback.format_exc())
+        return False
+
 # Page configuration
 st.set_page_config(
     page_title="AnalystGPT - Financial Document Analysis",

@@ -1,8 +1,88 @@
+# Python
 __pycache__/
+*.py[cod]
+*$py.class
 *.pyc
-*.pkl
-*.faiss
+*.pyo
+*.pyd
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Environment variables
 .env
+.env.*
+!.env.example
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Vector stores and AI data
+vector_store/
+*.faiss
+*.pkl
+*.index
+embeddings/
+*.npy
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
 .DS_Store
-.ipynb_checkpoints/
-vector_store/index.*
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# API keys and sensitive data
+constants.py
+config.py
+secrets.json
+*.key
+*.pem
+
+# Data files
+data/
+*.csv
+*.json
+*.pdf
+uploads/
+documents/
+
+# Temporary files
+tmp/
+temp/
+.tmp
+.cache/

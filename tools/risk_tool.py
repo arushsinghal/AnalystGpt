@@ -56,7 +56,7 @@ Format your response in a professional, analytical tone suitable for risk assess
             response = self.llm.predict(prompt)
             
             return {
-                "risk_analysis": response,
+                "result": response,
                 "source_documents": len(documents),
                 "companies": list(set([doc.metadata.get("company_name", "Unknown") for doc in documents])),
                 "quarters": list(set([f"{doc.metadata.get('year', 'Unknown')} {doc.metadata.get('quarter', 'Unknown')}" for doc in documents]))

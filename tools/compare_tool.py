@@ -58,10 +58,10 @@ Format your response in a professional, analytical tone suitable for investment 
         
         try:
             # Generate response
-            response = self.llm.predict(prompt)
+            response = self.llm.invoke(prompt)
             
-            return {
-                "comparison": response,
+            return{
+                "result": response,
                 "companies": [company1, company2],
                 "source_documents": len(all_docs)
             }
@@ -87,10 +87,10 @@ Format your response in a professional, analytical tone suitable for investment 
         
         try:
             # Generate response
-            response = self.llm.predict(prompt)
+            response = self.llm.invoke(prompt)
             
             return {
-                "comparison": response,
+                "result": response,
                 "quarters": [f"{year1} {quarter1}", f"{year2} {quarter2}"],
                 "source_documents": len(all_docs)
             }
